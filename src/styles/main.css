@@ -89,7 +89,9 @@ h3 {
 .app-wrap .form-wrap {
   position: relative;
 }
-
+.app-wrap  .content-wrap{
+  display: inline-block;
+}
 .app-wrap .countries-info {
   display: flex;
   text-align: left;
