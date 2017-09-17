@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Know Your Country</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="app-wrap">
+    <h2> Know Your Country </h2>
+    <div class="form-wrap">
+      <input list="countries" name="countries" id="country" class="countries-input">
+        <datalist id="countries"></datalist>
+      <input type="submit" id="submit">
+      <div class="loading" id="loading"> <img src="./assets/loading.svg" /> </div>
+    </div>
+    <div class="content-wrap" id="content-wrap">
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="/config/config.js"></script>
+<script type="text/javascript" src="scripts/factory.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+
+</html>
