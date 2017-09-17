@@ -17,8 +17,8 @@ Chrome 59
 
 Firefox 54
 
-Safari 10 (OS Sierra)
+Safari 10 (OS Sierra) (Working without datalist)
 
-iPhone 
+iPhone (Working without datalist)
 
 ````
