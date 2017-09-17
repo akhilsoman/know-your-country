@@ -71,6 +71,36 @@ describe("Countries", function() {
       expect(errorFn).toHaveBeenCalledWith('Something went wrong, Please try again after some time');
     });
   });
+  describe("handling client validation", function() {
+    beforeEach(function() {
+      jasmine.Ajax.install();
+      countriesFn = spyOn(countries, "getCountriesInfo").and.callThrough();
+      errorFn = spyOn(countries, "showError").and.callThrough();
+    });
+    afterEach(function() {
+      jasmine.Ajax.uninstall();
+    });
+    it("it should call the getCountryInformation API on valid selection", function() {
+      // act
+      document.querySelector("#country").value = "Afghanistan";
+      document.querySelector("#countries").innerHTML += `<option data-value="AF" value="Afghanistan">`;
+      countries.getCountrySpecificInfo()
+      expect(countriesFn).toHaveBeenCalledWith(jasmine.Ajax.requests.mostRecent().url)
+    });
+    it("it should display specific error message on no country selection", function() {
+      // act
+      document.querySelector("#country").value = "";
+      countries.getCountrySpecificInfo()
+      expect(errorFn).toHaveBeenCalledWith('Please select a country')
+    });
+    it("it should display specific error message on invalid country selection", function() {
+      // act
+      document.querySelector("#country").value = "Afghanistans";
+      document.querySelector("#countries").innerHTML += `<option data-value="AF" value="Afghanistan">`;
+      countries.getCountrySpecificInfo()
+      expect(errorFn).toHaveBeenCalledWith('Selected country not found !!')
+    });
+  });
   afterEach(function() {
     document.body.querySelector(".app-wrap").remove();
     dom = null;
